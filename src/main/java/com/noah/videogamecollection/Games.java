@@ -1,3 +1,5 @@
+package com.noah.videogamecollection;
+
 public class Games {
 
     // Declare Values //
