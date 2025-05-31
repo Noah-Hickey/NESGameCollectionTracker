@@ -2,6 +2,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class MainMenu {
@@ -10,6 +11,8 @@ public class MainMenu {
         private static List<Games> gameCatalog = new ArrayList<>();
 
         private static Scanner scanner = new Scanner(System.in);
+
+        private static long nextId = 1;
 
 
     public static void main(String[] args) {
@@ -162,6 +165,45 @@ public static void addGame(){
             System.out.println("Game collection is empty!");
             return;
         }
+
+        System.out.println("______________________________________________________");
+        System.out.println("            Games in the collection");
+        System.out.println("______________________________________________________");
+        System.out.println();
+
+        // Display all games with their Ids //
+        for (Games game : gameCatalog) {
+            System.out.println("ID: " + game.getId() + " - " + game.getGameTitle());
+        }
+        System.out.println();
+
+        // Get user input and validate the format //
+        System.out.print("Enter the ID of the game to remove: ");
+        long gameId;
+        try {
+            gameId = Long.parseLong(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid ID format.");
+            return;
+        }
+
+        //  Loop through the catalog and find the game //
+        boolean removed - false;
+        for (int i = 0; i < gameCatalog.size(); i++) {
+            if (gameCatalog.get(i).getId() = gameId) {
+                Games removedGame = gameCatalog.remove(i);
+                System.out.println("Game" + removeGame.getGameTitle() + "was removed!");
+                removed = true;
+                break;
+            }
+
+        }
+
+        if (!removed) {
+            System.out.println("Game with ID " + gameId + " was not found!");
+        }
+
+
 
     }
 

@@ -10,10 +10,10 @@ public class Games {
 
 
         // No-arg Constructor //
-        public Game() {}
+        public Games() {}
 
         // Constructor //
-        public Game(long id, String gameTitle, int releaseYear, String gameGenre, int personalRating, String personalAnecdote) {
+        public Games(long id, String gameTitle, int releaseYear, String gameGenre, int personalRating, String personalAnecdote) {
             this.id = id;
             this.gameTitle = gameTitle;
             this.releaseYear = releaseYear;
