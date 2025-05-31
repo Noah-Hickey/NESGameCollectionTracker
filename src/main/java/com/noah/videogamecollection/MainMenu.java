@@ -13,6 +13,10 @@ public class MainMenu {
 
         private static Scanner scanner = new Scanner(System.in);
 
+        public static List<Games> getGameCatalog() {
+            return gameCatalog;
+        }
+
         private static long nextId = 6;
 
         static {
@@ -199,7 +203,7 @@ public static void addGame() {
         }
 
         System.out.println("______________________________________________________");
-        System.out.println("            com.noah.videogamecollection.Games in the collection");
+        System.out.println("            Games in the collection");
         System.out.println("______________________________________________________");
         System.out.println();
 
