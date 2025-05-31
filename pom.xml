@@ -11,6 +11,14 @@
     <maven.compiler.target>23</maven.compiler.target>
     <maven.compiler.release>23</maven.compiler.release>
   </properties>
+  <dependencies>
+  <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>5.9.3</version>
+    <scope>test</scope>
+  </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>
