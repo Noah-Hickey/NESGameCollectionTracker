@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-public class GamesTesting {
+public class GamesTesting{
 
     @Test
     @DisplayName("Test initial game catalog contains 5 games")
