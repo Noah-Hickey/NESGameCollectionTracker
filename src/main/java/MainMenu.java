@@ -49,7 +49,6 @@ public class MainMenu {
                     System.out.println("Goodbye!");
                     return;
                 }
-                case "0" -> running = false;
                 default -> System.out.println("Invalid option, please try again.");
 
             }
@@ -60,7 +59,7 @@ public class MainMenu {
 public static void displayStory(){
 
     System.out.println("======================================================");
-    System.out.println("  My Story with the Ninetndo Entertainment System");
+    System.out.println("  My Story with the Nintendo Entertainment System");
     System.out.println("======================================================");
     System.out.println();
 
@@ -118,11 +117,12 @@ public static void displayStory(){
     System.out.println("and family. I believe the NES console and its great game");
     System.out.println("library remains timeless and will continue to amaze people");
     System.out.println("into the future as time goes on!");
-
+    System.out.println();
+    System.out.println();
 
 }
 
-public static void addGame(){
+public static void addGame() {
     System.out.println();
     System.out.println("======================================================");
     System.out.println("           Add a Game to the Collection!");
@@ -130,27 +130,47 @@ public static void addGame(){
 
 
     System.out.println();
-    System.out.println(Enter the Game Title:);
-    Scanner gameTitle = new Scanner(System.in);
+    System.out.println("Enter the Game Title:");
+    String gameTitle = scanner.nextLine();
 
     System.out.println();
     System.out.println("Enter the year the game was released: ");
-    Scanner releaseYear = new Scanner(System.in);
+    int releaseYear;
+    try {
+        releaseYear = Integer.parseInt(scanner.nextLine());  // Fixed: was Scanner.nextLine()
+    } catch (NumberFormatException e) {
+        System.out.println("Invalid year format. Please try again.");
+        return;
+    }
+
 
     System.out.println();
     System.out.println("Enter the genre of the game: ");
-    Scanner gameGenre = new Scanner(System.in);
+    String gameGenre = scanner.nextLine();
 
     System.out.println();
     System.out.println("Enter your personal rating of the game(1-10): ");
-    Scanner personalRating = new Scanner(System.in);
+    int personalRating;
+    // Check that rating is between 1-10 only //
+    try {
+        personalRating = Integer.parseInt(scanner.nextLine());
+        if (personalRating < 1 || personalRating > 10) {
+            System.out.println("Rating must be between 1 and 10. Please try again.");
+            return;
+        }
+    }catch(NumberFormatException e){
+            System.out.println("Invalid rating format. Please try again.");
+            return;
+        }
+
+
 
     System.out.println();
     System.out.println("Enter a personal anecdote about the game: ");
-    Scanner personalAnecdote = new Scanner(System.in);
+    String personalAnecdote = scanner.nextLine();
 
     System.out.println();
-    gameCatalog.add(new Game(id, title, year, genre, rating, anecdote));
+    gameCatalog.add(new Games(nextId++, gameTitle, releaseYear, gameGenre, personalRating, personalAnecdote));
     System.out.println("Game added!");
     }
 
@@ -163,6 +183,7 @@ public static void addGame(){
 
         if (gameCatalog.isEmpty()) {
             System.out.println("Game collection is empty!");
+            System.out.println();
             return;
         }
 
@@ -188,23 +209,43 @@ public static void addGame(){
         }
 
         //  Loop through the catalog and find the game //
-        boolean removed - false;
+        boolean removed = false;
         for (int i = 0; i < gameCatalog.size(); i++) {
-            if (gameCatalog.get(i).getId() = gameId) {
+            if (gameCatalog.get(i).getId() == gameId) {
                 Games removedGame = gameCatalog.remove(i);
-                System.out.println("Game" + removeGame.getGameTitle() + "was removed!");
+                System.out.println("Game" + removedGame.getGameTitle() + " was removed!");
                 removed = true;
                 break;
             }
 
         }
-
         if (!removed) {
             System.out.println("Game with ID " + gameId + " was not found!");
         }
 
+    }
 
+    private static void randomizeGame() {
+        System.out.println("======================================================");
+        System.out.println("              Random Game Selection!");
+        System.out.println("======================================================");
+        System.out.println();
 
+        if (gameCatalog.isEmpty()) {
+            System.out.println("Game collection is empty! Add some games first.");
+            return;
+        }
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(gameCatalog.size());
+        Games randomGame = gameCatalog.get(randomIndex);
+
+        System.out.println();
+        System.out.println("______________________________________________________");
+        System.out.println("              Your random game is:");
+        System.out.println("______________________________________________________");
+        System.out.println();
+        System.out.println(randomGame.toString());
     }
 
 }

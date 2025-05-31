@@ -59,7 +59,7 @@ public class Games {
             this.gameTitle = gameTitle;
         }
 
-        public void setReleaseYear(String releaseYear){
+        public void setReleaseYear(int releaseYear){
             this.releaseYear = releaseYear;
         }
 
@@ -67,22 +67,22 @@ public class Games {
             this.gameGenre = gameGenre;
         }
 
-        public void setPersonalRating(String personalRating){
+        public void setPersonalRating(int personalRating){
             this.personalRating = personalRating;
         }
 
-        public void set PersonalAnecdote(String personalAnecdote){
+        public void setPersonalAnecdote(String personalAnecdote){
             this.personalAnecdote = personalAnecdote;
         }
 
         @Override
                 public String toString() {
-            return "id: " + id;
-            return "Title: " + gameTitle;
-            return "ReleaseYear: " + releaseYear;
-            return "Genre: " + gameGenre;
-            return "Personal Rating: " + personalRating;
-            return "Personal Anecdote: " + personalAnecdote;
+            return "id: " + id + "\n" +
+            "Title: " + gameTitle + "\n" +
+            "ReleaseYear: " + releaseYear + "\n" +
+            "Genre: " + gameGenre + "\n" +
+            "Personal Rating: " + personalRating + "\n" +
+            "Personal Anecdote: " + personalAnecdote;
 
         }
 
