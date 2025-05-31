@@ -1,3 +1,4 @@
+package com.noah.videogamecollection;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -12,7 +13,17 @@ public class MainMenu {
 
         private static Scanner scanner = new Scanner(System.in);
 
-        private static long nextId = 1;
+        private static long nextId = 6;
+
+        static {
+
+            gameCatalog.add(new Games(1,"Super Mario Bros.", 1985, "Platformer", 8, "Such an influential game, great secrets, classic that everyone should try."));
+            gameCatalog.add(new Games(2, "Duck Hunt", 1985, "Light gun", 9, "Always a blast, always tried beating our high scores. Loved it!" ));
+            gameCatalog.add(new Games(3, "Dragon Warrior", 1989, "RPG", 9, "Recently played this and had a great experience. Very influential for it's time and the gameplay is very charming even if it is basic"));
+            gameCatalog.add(new Games(4, "Ice Hockey", 1988, "Sports", 7, "Fun game to play on occasion, the CPU players are no joke!"));
+            gameCatalog.add(new Games(5, "Super Mario Bros. 3", 1988, "Platformer", 10,"Masterpiece of a game, my friends and I loved it. In my top 3 games of all time!"));
+
+        }
 
 
     public static void main(String[] args) {
@@ -188,7 +199,7 @@ public static void addGame() {
         }
 
         System.out.println("______________________________________________________");
-        System.out.println("            Games in the collection");
+        System.out.println("            com.noah.videogamecollection.Games in the collection");
         System.out.println("______________________________________________________");
         System.out.println();
 
