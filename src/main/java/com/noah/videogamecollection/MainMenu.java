@@ -142,6 +142,23 @@ public class MainMenu {
 
     }
 
+    // Method to call so it will display all games in the catalog //
+    private static void displayGameCatalog() {
+        if (gameCatalog.isEmpty()) {
+            System.out.println("Game collection is empty!");
+            return;
+        }
+
+        System.out.println(SUB_SEPARATOR);
+        System.out.println("            Games in the collection");
+        System.out.println(SUB_SEPARATOR);
+        System.out.println();
+
+        for (Games game : gameCatalog) {
+            System.out.println("ID: " + game.getId() + " - " + game.getGameTitle());
+        }
+        System.out.println();
+    }
 
 
 public static void addGame() {
@@ -150,10 +167,14 @@ public static void addGame() {
     System.out.println("           Add a Game to the Collection!");
     System.out.println(SEPARATOR);
 
+    displayGameCatalog();
 
-    System.out.println();
-    System.out.println("Enter the Game Title:");
+    System.out.println("Enter the Game Title or enter EXIT to exit to main menu:");
     String gameTitle = scanner.nextLine();
+    if (gameTitle.equalsIgnoreCase("EXIT")) {
+        System.out.println("Returning to main menu...");
+        return;
+    }
 
     System.out.println();
     System.out.println("Enter the year the game was released: ");
@@ -209,22 +230,19 @@ public static void addGame() {
             return;
         }
 
-        System.out.println(SUB_SEPARATOR);
-        System.out.println("            Games in the collection");
-        System.out.println(SUB_SEPARATOR);
-        System.out.println();
-
-        // Display all games with their Ids //
-        for (Games game : gameCatalog) {
-            System.out.println("ID: " + game.getId() + " - " + game.getGameTitle());
-        }
-        System.out.println();
+        displayGameCatalog();
 
         // Get user input and validate the format //
-        System.out.print("Enter the ID of the game to remove: ");
+        System.out.print("Enter the ID of the game to remove or enter 'EXIT' to exit to main menu: ");
+        String input = scanner.nextLine();
+        if (input.equalsIgnoreCase("EXIT")) {
+            System.out.println("Returning to main menu...");
+            return;
+        }
+
         long gameId;
         try {
-            gameId = Long.parseLong(scanner.nextLine());
+            gameId = Long.parseLong(input);
         } catch (NumberFormatException e) {
             System.out.println("Invalid ID format.");
             return;
@@ -235,7 +253,7 @@ public static void addGame() {
         for (int i = 0; i < gameCatalog.size(); i++) {
             if (gameCatalog.get(i).getId() == gameId) {
                 Games removedGame = gameCatalog.remove(i);
-                System.out.println("Game" + removedGame.getGameTitle() + " was removed!");
+                System.out.println("Game " + removedGame.getGameTitle() + " was removed!");
                 removed = true;
                 break;
             }
