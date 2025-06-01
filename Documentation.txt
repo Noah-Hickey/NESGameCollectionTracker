@@ -1,0 +1,68 @@
+QAP 1 - Dev Ops + SDAT
+Submitted: June 1st, 2025
+Submitted by: Noah Hickey
+
+                                                Video Game Collection
+
+To use this application, be sure you clone it using:
+ <git clone https://github.com/Noah-Hickey/NESGameCollectionTracker>
+
+                                                Requirements
+
+Once you have cloned this repository to an IDE such as IntelliJ or VS Code, ensure you have the Java JDK installed and
+Maven installed. Once that is completed, run <mvn compile> in the terminal and run the program.
+
+                                                    General
+
+ This program is a command line interface Maven project coded in Java. This program is designed to store information
+ of a video game collection. Particularly for me, I collect NES games so it is tailored around that but feel free to
+ fork and edit to your liking.
+
+ The Nintendo Entertainment System is one of my favourite gaming consoles, so I was glad to make an application
+ to help my collecting efforts.
+
+                                                    Usage
+
+ Running the MainMenu program, you will see in your terminal options many options. The 5 you will see are:
+ the story of me and my history with the NES, add a game to the collection, remove a game from the collection,
+ randomly select a game from the collection, and exit to close out the program. There should be some game data
+ in the program by default for testing purposes.
+
+                                         Clean Code(Screenshots in repo)
+
+    1. I added in variables to expand or add to the program I am able to do so. Added in SEPARATOR and
+    SUB_SEPARATOR variables to avoid repeating myself and making the code neater. When implementing menus I can
+    now do it much easier.
+
+    2. I added in variables MIN_RATING, MAX_RATING, and nextId. MIN_RATING and MAX_RATING are added to make the code
+    more readable and easier to understand. I also added in nextId because I know there are 5 games in the system
+    and nextId is set to 6 and I can simply increment nextId if I need to increase the game count.
+
+    3. I added in a method to display game catalog for both the remove and add sections of the menu to avoid repeating
+    and reduce the length of my file.
+
+                                                Test Cases
+
+    1. testInitialGameCatalogSize - The first test asserts that there are 5 games in the catalog for testing purposes.
+
+    2. testInitialGamesHaveValidIds() - The second test ensures that the list of games all contain proper IDs.
+
+    3. testSuperMarioBros3() - Since I know Super Marios Bros. 3 is in the catalog, this test asserts the game is there
+    with the correct title, genre, and year it was released.
+
+                                               Dependencies
+
+ The only dependency I used was J Unit for testing and I watched the class recording to get the proper dependency call.
+
+                                                Problems
+
+ I had several problems with this QAP. I had to re-install IntelliJ a few days ago so I had to make sure all my
+ Maven and Java versions worked properly which took time. I also had an issue with testing my file because the file and
+ folder structure was incorrect on several occasions. I finally managed to fix it by ensuring that the test directory
+ mirrored my main project.
+
+
+
+
+
+
